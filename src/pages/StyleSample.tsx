@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import styles from '../styles/Home.module.css'
 import styled, { css } from 'styled-components'
+import Link, { LinkProps } from 'next/link'
 
 const H1 = styled.h1`
   color: red;
@@ -54,6 +55,24 @@ padding:0.25em 1em;
 border-radius:8px;
 cursor:pointer;
 `
+type BaseLinkProps = React.PropsWithChildren<LinkProps> & {
+  className?: string
+  children: React.ReactNode
+}
+
+const BaseLink = (props: BaseLinkProps) => {
+  const { className, children, ...rest } = props
+  return (
+    <Link {...rest} className={className}>
+      {children}
+    </Link>
+  )
+}
+
+const StyledLink = styled(BaseLink)`
+color:#1e90ff;
+font-size:2em;
+`
 
 const StyleSample: NextPage = (props) => {
   return (
@@ -82,9 +101,12 @@ const StyleSample: NextPage = (props) => {
       </div>
       <div>
         <Text>World</Text>
-        <Text as="a" href="/">
+        <Text>
           Go to index
         </Text>
+      </div>
+      <div>
+        <StyledLink href="/">Go to Index(StyledLink)</StyledLink>
       </div>
     </div>
   )
