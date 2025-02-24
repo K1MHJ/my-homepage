@@ -1,10 +1,18 @@
 import next from "next"
 import Link from "next/link"
+import { useRouter } from "next/router"
 
-export default function page1() {
+export default function Page1() {
+  const router = useRouter();
+
   return (
-    <Link href="/Sample">
-      <button> Jump to Sample page</button>
-    </Link>
+    <div>
+      <Link href="/Sample">
+        <button> Jump to Sample page</button>
+      </Link>
+      <div>
+        <button onClick={() => router.push("/Sample")}> Jump(useRouter)</button>
+      </div>
+    </div>
   )
 }
