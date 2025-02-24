@@ -80,6 +80,12 @@ const StyleSample: NextPage = (props) => {
         <Text>Hello</Text>
         <BorderedText>World</BorderedText>
       </div>
+      <div>
+        <Text>World</Text>
+        <Text as="a" href="/">
+          Go to index
+        </Text>
+      </div>
     </div>
   )
 }
