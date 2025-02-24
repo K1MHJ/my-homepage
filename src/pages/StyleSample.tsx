@@ -38,6 +38,11 @@ const Text = styled.p`
 font-weight:bold;
 ${font}
 `
+const BorderedText = styled(Text)`
+padding:8px 16px;
+border:3px solid blue;
+border-radius:8px;
+`
 
 const Button = styled.button<ButtonProps>`
 color: ${(props) => props.color};
@@ -70,6 +75,10 @@ const StyleSample: NextPage = (props) => {
         {/*파란문자로 빨간색 경계선 버튼을 표시*/}
         <Button2>Hello</Button2>
         <Text>World</Text>
+      </div>
+      <div>
+        <Text>Hello</Text>
+        <BorderedText>World</BorderedText>
       </div>
     </div>
   )
